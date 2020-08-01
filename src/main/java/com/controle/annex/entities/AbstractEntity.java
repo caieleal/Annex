@@ -16,7 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @MappedSuperclass
 @EqualsAndHashCode
-public abstract class AbstractEntity <ID extends Serializable> implements Serializable {
+public abstract class AbstractEntity<ID extends Serializable> implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
