@@ -1,8 +1,6 @@
 package com.controle.annex.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -26,12 +24,12 @@ public class Client extends AbstractEntity<Long> {
 
     @NotNull
     @NotBlank(message = "Digite o número de telefone do cliente.")
-    @Size(max = 11)
+    @Size(max = 15)
     @Column(name = "telefoneCliente")
     private String fone;
 
     @NotNull
-    @Size(max = 11)
+    @Size(max = 14)
     @NotBlank(message = "Digite um cpf válido.")
     @Column(name = "cpfCliente", unique = true)
     private String cpf;
@@ -44,7 +42,6 @@ public class Client extends AbstractEntity<Long> {
 
     @ManyToOne
     @JoinColumn(name = "funcionario_id", referencedColumnName = "id")
-    @NotNull(message = "Escolha um funcionário.")
     private Employee employee;
 
 }
