@@ -1,13 +1,16 @@
 package com.controle.annex.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "bicicletas")
 public class Bike extends AbstractEntity<Long> {
@@ -16,7 +19,7 @@ public class Bike extends AbstractEntity<Long> {
     @NotNull(message = "Insira um tamanho.")
     @NotBlank(message = "Atencao, campo nao pode ser vazio.")
     @Column(name = "tamanho_bike")
-    private Integer size;
+    private String size;
 
     @NotNull(message = "Atencao, a cor nao pode ser nula.")
     @NotBlank(message = "Insira uma cor.")

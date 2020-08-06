@@ -1,7 +1,6 @@
 package com.controle.annex.service;
 
 import com.controle.annex.entities.Client;
-import com.controle.annex.entities.Employee;
 import com.controle.annex.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +49,7 @@ public class ClientServiceImpl implements ClientService {
     public Client deleteClient(Long id) {
         Optional<Client> client = repository.findById(id);
         if (client.isPresent()) {
-            repository.deleteById(id);
+            repository.deleteById(client.get().getId());
         }
         return null;
     }

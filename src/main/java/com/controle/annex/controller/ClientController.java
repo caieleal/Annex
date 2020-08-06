@@ -2,7 +2,6 @@ package com.controle.annex.controller;
 
 import com.controle.annex.entities.Client;
 import com.controle.annex.entities.Employee;
-import com.controle.annex.repository.EmployeeRepository;
 import com.controle.annex.service.ClientService;
 import com.controle.annex.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/client")
-public class ClienteController {
+@RequestMapping("/annex")
+public class ClientController {
 
     @Autowired
     private ClientService service;

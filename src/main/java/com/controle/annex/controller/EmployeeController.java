@@ -17,7 +17,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/annex")
 public class EmployeeController {
 
     @Autowired
