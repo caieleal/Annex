@@ -12,4 +12,8 @@ public interface ManufacturerService {
     Optional<Manufacturer> findByIdManufac(Long id);
 
     List<Manufacturer> findAllManufac();
+
+    void updateManufac(Manufacturer manufac);
+
+    Optional<Manufacturer> deleteManufacByid(Long id);
 }

@@ -28,4 +28,19 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public List<Manufacturer> findAllManufac() {
         return repository.findAll();
     }
+
+    @Override
+    public void updateManufac(Manufacturer manufac) {
+        repository.save(manufac);
+    }
+
+    @Override
+    public Optional<Manufacturer> deleteManufacByid(Long id) {
+        Optional<Manufacturer> findManufac = repository.findById(id);
+        if(findManufac.isPresent()){
+            repository.deleteById(findManufac.get().getId());
+        }
+        return null;
+
+    }
 }
