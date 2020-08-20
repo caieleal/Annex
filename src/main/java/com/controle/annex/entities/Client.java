@@ -1,8 +1,10 @@
 package com.controle.annex.entities;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -43,5 +45,7 @@ public class Client extends AbstractEntity<Long> {
     @ManyToOne
     @JoinColumn(name = "funcionario_id", referencedColumnName = "id")
     private Employee employee;
+
+
 
 }

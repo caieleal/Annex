@@ -30,20 +30,20 @@ public class AnnexApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Employee employee = new Employee();
-		employee.setNome("teste");
-		employee.setCpf("123.155.144.75");
-		employee.setTelefone("(11)91111-1111");
-		employee.setEmail("teste@teste.com");
-        repository.save(employee);
+//		Employee employee = new Employee();
+//		employee.setNome("teste");
+//		employee.setCpf("123.155.144.75");
+//		employee.setTelefone("(11)91111-1111");
+//		employee.setEmail("teste@teste.com");
+//        repository.save(employee);
 
-		Client client = new Client();
-		client.setName("clientTest");
-		client.setFone("(11)9.1111-1111");
-		client.setCpf("222.222.222-22");
-		client.setEmail("clientTest@test.com");
-		client.setEmployee(employee);
-		clientRepository.save(client);
+//		Client client = new Client();
+//		client.setName("clientTest");
+//		client.setFone("(11)9.1111-1111");
+//		client.setCpf("222.222.222-22");
+//		client.setEmail("clientTest@test.com");
+//		client.setEmployee(employee);
+//		clientRepository.save(client);
 
 		Manufacturer manufacturer = new Manufacturer();
 		manufacturer.setName("manufacturer");

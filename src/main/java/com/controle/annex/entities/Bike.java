@@ -36,4 +36,8 @@ public class Bike extends AbstractEntity<Long> {
     @JoinColumn(name = "fabricante_id", referencedColumnName = "id")
     private Manufacturer manufacturer;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id")
+    private Client client;
+
 }

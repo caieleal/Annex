@@ -1,8 +1,10 @@
 package com.controle.annex.controller;
 
 import com.controle.annex.entities.Bike;
+import com.controle.annex.entities.Client;
 import com.controle.annex.entities.Manufacturer;
 import com.controle.annex.service.BikeService;
+import com.controle.annex.service.ClientService;
 import com.controle.annex.service.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,9 @@ public class BikeController {
 
     @Autowired
     private ManufacturerService manuService;
+
+    @Autowired
+    private ClientService clientService;
 
     @PostMapping("/saveBike/{manufacturer}")
     private ResponseEntity<Bike> saveBike(@PathVariable("manufacturer")Long manufacturer, @Valid @RequestBody Bike bike){
