@@ -29,14 +29,14 @@ public class AnnexApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+//
 //		Employee employee = new Employee();
 //		employee.setNome("teste");
 //		employee.setCpf("123.155.144.75");
 //		employee.setTelefone("(11)91111-1111");
 //		employee.setEmail("teste@teste.com");
 //        repository.save(employee);
-
+//
 //		Client client = new Client();
 //		client.setName("clientTest");
 //		client.setFone("(11)9.1111-1111");
@@ -44,10 +44,10 @@ public class AnnexApplication implements CommandLineRunner {
 //		client.setEmail("clientTest@test.com");
 //		client.setEmployee(employee);
 //		clientRepository.save(client);
-
-		Manufacturer manufacturer = new Manufacturer();
-		manufacturer.setName("manufacturer");
-		manufacturerRepository.save(manufacturer);
+//
+//		Manufacturer manufacturer = new Manufacturer();
+//		manufacturer.setName("manufacturer");
+//		manufacturerRepository.save(manufacturer);
 
 
 

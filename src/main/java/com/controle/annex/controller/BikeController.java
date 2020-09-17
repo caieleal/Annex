@@ -30,13 +30,15 @@ public class BikeController {
     @Autowired
     private ClientService clientService;
 
-    @PostMapping("/saveBike/{manufacturer}")
-    private ResponseEntity<Bike> saveBike(@PathVariable("manufacturer")Long manufacturer, @Valid @RequestBody Bike bike){
+    @PostMapping("/saveBike/{manufacturer}/{code}")
+    public ResponseEntity<Bike> saveBike(@PathVariable("code") Long code, @PathVariable("manufacturer")Long manufacturer, @Valid @RequestBody Bike bike){
         Optional<Manufacturer> findManufac = manuService.findByIdManufac(manufacturer);
-        if(findManufac.isPresent()){
+        Optional<Client> findClient = clientService.findByIdClient(code);
+        if(findManufac.isPresent() && findClient.isPresent()){
             bike.setManufacturer(findManufac.get());
+            bike.setClient(findClient.get());
             service.saveBike(bike);
-            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{manufacturer}").build().toUri();
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{manufacturer}/{code}").build().toUri();
             return ResponseEntity.created(uri).build();
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -46,7 +48,7 @@ public class BikeController {
     private ResponseEntity<Bike> updateBike(@PathVariable("code")Long code, @Valid @RequestBody Bike bike){
         Optional<Bike> findBike = service.findByIdBike(code);
         if(!findBike.isPresent()){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         bike.setId(findBike.get().getId());
         service.updateBike(bike);

@@ -20,27 +20,16 @@ import java.util.List;
 public class Employee extends AbstractEntity<Long> {
 
 
-    @NotNull(message = "Informe um nome.")
-    @NotBlank
-    @Size(min = 3, max = 60, message = "O nome deve ter entra {min} e {max} caracteres.")
-    @Column(name = "nomeFuncionario", unique = true, length = 60)
-    private String nome;
+    @Column(name = "nomeFuncionario", nullable = false, unique = true, length = 60)
+    private String name;
 
-    @NotBlank
-    @NotNull(message = "Informe um CPF válido.")
-    @Size(max = 14, message = "Verifique o CPF.")
-    @Column(name = "cpfFuncionario")
+    @Column(name = "cpfFuncionario", nullable = false, unique = true)
     private String cpf;
 
-    @NotBlank
-    @NotNull(message = "Insira um número de telefone.")
-    @Column(name = "telefoneFuncionario")
-    private String telefone;
+    @Column(name = "telefoneFuncionario", nullable = false)
+    private String fone;
 
-    @NotNull
-    @NotBlank
-    @Column(name = "emailFuncionario")
-    @Email(message = "Insira um email válido.")
+    @Column(name = "emailFuncionario", nullable = false)
     private String email;
 
     @JsonIgnore

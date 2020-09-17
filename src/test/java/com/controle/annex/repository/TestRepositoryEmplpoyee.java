@@ -1,6 +1,5 @@
-package com.controle.annex;
+package com.controle.annex.repository;
 import com.controle.annex.entities.Employee;
-import com.controle.annex.repository.EmployeeRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,9 +32,9 @@ public class TestRepositoryEmplpoyee {
 
         Employee employee = new Employee();
         employee.setId(ID);
-        employee.setNome(NAME);
+        employee.setName(NAME);
         employee.setCpf(CPF);
-        employee.setTelefone(TELEFONE);
+        employee.setFone(TELEFONE);
         employee.setEmail(EMAIL);
         repository.save(employee);
     }
@@ -47,18 +46,18 @@ public class TestRepositoryEmplpoyee {
     public void testSave(){
         Employee employee = new Employee();
         employee.setId(ID);
-        employee.setNome(NAME);
+        employee.setName(NAME);
         employee.setCpf(CPF);
-        employee.setTelefone(TELEFONE);
+        employee.setFone(TELEFONE);
         employee.setEmail(EMAIL);
         Employee response = repository.save(employee);
         assertNotNull(response);
     }
     @Test
     public void findByName(){
-        Optional<Employee> findByName = repository.findByNomeIgnoreCase(NAME);
+        Optional<Employee> findByName = repository.findByNameIgnoreCase(NAME);
         assertTrue(findByName.isPresent());
-        assertEquals(findByName.get().getNome(), NAME);
+        assertEquals(findByName.get().getName(), NAME);
     }
     @Test
     public void testFindById(){
@@ -70,9 +69,9 @@ public class TestRepositoryEmplpoyee {
     public void testUpdate(){
         Employee employee = new Employee();
         employee.setId(2L);
-        employee.setNome("nameTest");
+        employee.setName("nameTest");
         employee.setCpf("321.321.321-32");
-        employee.setTelefone("(11)9.1234-4321");
+        employee.setFone("(11)9.1234-4321");
         employee.setEmail("testemail@email.com");
         Employee response = repository.save(employee);
 
@@ -80,12 +79,12 @@ public class TestRepositoryEmplpoyee {
         String newCpf = "444.444.444-44";
         String newEmail = "updateemail@update.com";
         response.setEmail(newEmail);
-        response.setNome(newName);
+        response.setName(newName);
         response.setCpf(newCpf);
         Employee update = repository.save(response);
         Optional<Employee> findNewEmployee = repository.findById(update.getId());
         assertEquals(findNewEmployee.get().getEmail(), newEmail);
-        assertEquals(findNewEmployee.get().getNome(), newName);
+        assertEquals(findNewEmployee.get().getName(), newName);
         assertEquals(findNewEmployee.get().getCpf(), newCpf);
 
     }

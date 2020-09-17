@@ -1,6 +1,7 @@
 package com.controle.annex.util;
 
 public enum TypeEnum {
+
     EN("ENTRADA"),
     PR("PRONTO"),
     AR("AGUARDANDO RETIRADA");

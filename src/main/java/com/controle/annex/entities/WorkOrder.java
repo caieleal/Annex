@@ -25,6 +25,11 @@ public class WorkOrder extends AbstractEntity<Long>{
     private String description;
 
     @NotNull
+    @NotBlank
+    @Column(name = "Itens")
+    private String items;
+
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TypeEnum type;
 
@@ -42,6 +47,7 @@ public class WorkOrder extends AbstractEntity<Long>{
     @Column(name = "dataSaida", columnDefinition = "DATE")
     private LocalDate outputDate;
 
-
+    @OneToOne
+    private Client client;
 
 }

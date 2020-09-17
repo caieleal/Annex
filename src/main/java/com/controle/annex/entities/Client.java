@@ -1,5 +1,6 @@
 package com.controle.annex.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 
@@ -46,6 +47,7 @@ public class Client extends AbstractEntity<Long> {
     @JoinColumn(name = "funcionario_id", referencedColumnName = "id")
     private Employee employee;
 
-
-
+    @OneToOne(mappedBy = "client")
+    @JsonIgnore
+    private Bike bike;
 }

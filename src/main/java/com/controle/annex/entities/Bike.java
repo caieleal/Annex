@@ -1,16 +1,18 @@
 package com.controle.annex.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "bicicletas")
 public class Bike extends AbstractEntity<Long> {
@@ -31,13 +33,11 @@ public class Bike extends AbstractEntity<Long> {
     @NotBlank(message = "Campo vazio. Insira o modelo.")
     private String model;
 
-    @NotNull(message = "Escolha um fabricante.")
     @ManyToOne
     @JoinColumn(name = "fabricante_id", referencedColumnName = "id")
     private Manufacturer manufacturer;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client", referencedColumnName = "id")
     private Client client;
-
 }

@@ -24,5 +24,5 @@ public class Manufacturer extends AbstractEntity<Long>{
 
     @JsonIgnore
     @OneToMany(mappedBy = "manufacturer")
-    private List<Bike> bike;
+    private List<Bike> bikes;
 }
